@@ -161,6 +161,10 @@ class Directions extends AbstractService
             $httpQuery['arrival_time'] = $directionsRequest->getArrivalTime()->getTimestamp();
         }
 
+        if($this->hasApiKey()) {
+            $httpQuery['key'] = $this->getApiKey();
+        }
+
         $httpQuery['sensor'] = $directionsRequest->hasSensor() ? 'true' : 'false';
 
         $url = sprintf('%s/%s?%s', $this->getUrl(), $this->getFormat(), http_build_query($httpQuery));

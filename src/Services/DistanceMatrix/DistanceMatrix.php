@@ -134,6 +134,10 @@ class DistanceMatrix extends AbstractService
             $httpQuery['language'] = $distanceMatrixRequest->getLanguage();
         }
 
+        if($this->hasApiKey()) {
+            $httpQuery['key'] = $this->getApiKey();
+        }
+
         $httpQuery['sensor'] = $distanceMatrixRequest->hasSensor() ? 'true' : 'false';
 
         $url = sprintf('%s/%s?%s', $this->getUrl(), $this->getFormat(), http_build_query($httpQuery));

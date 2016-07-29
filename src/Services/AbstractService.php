@@ -39,6 +39,9 @@ abstract class AbstractService
 
     /** @var \Ivory\GoogleMap\Services\BusinessAccount */
     protected $businessAccount;
+    
+    /* @var string */
+    protected $apiKey;
 
     /**
      * Creates a service.
@@ -190,6 +193,34 @@ abstract class AbstractService
     public function setXmlParser(XmlParser $xmlParser)
     {
         $this->xmlParser = $xmlParser;
+    }
+
+    /**
+     * Checks if the service has a api key.
+     *
+     * @return boolean TRUE if the service has a api key else FALSE.
+     */
+    public function hasApiKey()
+    {
+        return $this->apiKey !== null;
+    }
+
+    /**
+     * Get the application's API Key
+     *
+     * @return string|boolean
+     */
+    public function getApiKey()
+    {
+        return $this->apiKey;
+    }
+    /**
+     * Set the application's API Key
+     * @param string $apiKey
+     */
+    public function setApiKey($apiKey)
+    {
+        $this->apiKey = $apiKey;
     }
 
     /**
