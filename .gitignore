@@ -3,3 +3,9 @@
 /composer.lock
 /phpunit.xml
 /vendor
+/clover.xml
+/report
+
+# Coveralls
+/coveralls.json
+.idea
