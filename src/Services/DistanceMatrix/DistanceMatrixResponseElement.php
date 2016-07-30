@@ -118,4 +118,13 @@ class DistanceMatrixResponseElement
     {
         $this->duration = $duration;
     }
+
+    /**
+     * get if distance matrix response status is ok
+     *
+     */
+    public function isOk()
+    {
+        return $this->status == DistanceMatrixElementStatus::OK;
+    }
 }
