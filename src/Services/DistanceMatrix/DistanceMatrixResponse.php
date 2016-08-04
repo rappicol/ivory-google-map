@@ -177,4 +177,12 @@ class DistanceMatrixResponse
 
         $this->status = $status;
     }
+
+    /**
+     * @return boolean
+     */
+    public function isValid()
+    {
+        return $this->status == DistanceMatrixStatus::OK && count($this->rows) == count($this->origins);
+    }
 }
